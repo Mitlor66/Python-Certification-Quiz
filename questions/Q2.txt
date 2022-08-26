@@ -1,0 +1,12 @@
+How many '#' will be displayed after executing the following code:
+x = 7
+if x != 10:
+    print('#')
+    if x < 8:
+        print('#')
+    elif x == 10:
+        print('#')
+    else:
+        print('#')
+else:
+    print('#'*3)

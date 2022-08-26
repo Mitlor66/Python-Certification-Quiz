@@ -1,0 +1,2 @@
+What will be the answer to the following statement:
+print(9**3**0**1)

@@ -1,0 +1,19 @@
+{
+	"questions": [
+		{
+			"ID": 1,
+			"choices": {"A": "Interpreter", "B": "Compiler"},
+			"answer": "A"
+		},
+		{
+			"ID": 2,
+			"choices": {"A": 1, "B": 2, "C": 3, "D": 4},
+			"answer": "B"
+		},
+		{
+			"ID": 3,
+			"choices": {"A": 1, "B": 9, "C": 0, "D": 3},
+			"answer": "B"
+		}
+	]
+}
