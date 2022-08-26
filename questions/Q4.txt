@@ -1,0 +1,3 @@
+What is the output of this code when "robert" is entered by the user when prompted?
+name = input()
+print(name == "Robert")
