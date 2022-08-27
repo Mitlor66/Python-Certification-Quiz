@@ -1,125 +1,181 @@
 import pandas as pd
 import random
 import tkinter as tk
-import tkinter.font as font
 from tkinter import ttk
 
 
-def read_file(filename):
-    return pd.read_json(filename)
-
-
-def generate_question(questions):
-    number_of_questions = len(questions)
-    possible_questions_id = [x for x in range(number_of_questions)]
-    r = 2  # random.choice(possible_questions_id)
-    possible_questions_id.remove(r)
-    print("question ID:", r+1)
-    with open(f"questions/Q{r+1}.txt", 'r') as f:
+def generate_question():
+    global possible_questions_id, question, question_id, choices, answer
+    question_id = random.choice(possible_questions_id)
+    with open(f"questions/Q{question_id + 1}.txt", 'r') as f:
         lines = f.readlines()
         question = ""
         for line in lines:
             question += line
-    print(question+"\n")
-    choices = questions[r]["choices"]
-    answer = questions[r]["answer"]
-    for k, v in choices.items():
-        print(k, ":", v)
-    print()
-    a = ""
-    possible_answers = choices.keys()
-    print(possible_answers)
-    """while a not in possible_answers:
-        a = input("What is your answer? ")
-        if a not in possible_answers:
-            print("Wrong input, please enter one of the following possible answer:", possible_answers)
-        elif a == answer:
-            print("well done")
-        else:
-            print("wrong, sorry, the answer was", answer)"""
-    return question, choices, answer
+    choices = questions[question_id]["choices"]
+    answer = questions[question_id]["answer"]
 
 
-def select(choice, answer):
-    print(choice, answer)
+def select(button_id, choice):
+    global isCorrect, buttons, answer, score
+    next_button['state'] = 'normal'
     if choice == answer:
-        print("well done")
+        score += 1
+        isCorrect = True
     else:
-        print("wrong, sorry, the answer was", answer)
+        isCorrect = False
+    if isCorrect:
+        buttons[button_id]['bg'] = '#32ff00'
+    else:
+        buttons[button_id]['bg'] = 'red'
+    for button in buttons:
+        button['state'] = 'disabled'
 
 
-def create_quiz():
-    data = read_file("all questions.json")
-    questions = data["questions"]
+def next_question():
+    global question_id, question, choices, answer, questions, possible_questions_id, question_no
+    generate_question()
+    possible_questions_id.remove(question_id)
 
-    question, choices, answer = generate_question(questions)
-
-    root = tk.Tk()
-    root.title('Python Certification Quiz')
-
-    window_width = 1000
-    window_height = 600
-
-    s = ttk.Style()
-    s.configure('my.TButton', font=('Helvetica', 18), width=37)
-
-    #text_font = font.Font(size=30, family='Helvetica')
-
-    # get the screen dimension
-    screen_width = root.winfo_screenwidth()
-    screen_height = root.winfo_screenheight()
-
-    # find the center point
-    center_x = int(screen_width/2 - window_width / 2)
-    center_y = int(screen_height/2 - window_height / 2)
-
-    # set the position of the window to the center of the screen
-    root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
-    root.resizable(False, False)
-
-    question_frame = tk.Frame(root)
-    question_frame.pack(expand=True, fill='x')
-
-    buttons_frame = tk.Frame(root)
-    buttons_frame.pack(fill='x')
-
-    label_question = tk.Label(
-        question_frame,
-        text=question,
-        font=('Helvetica', 18),
-        bd=1, relief='sunken',
-        justify='left'
-    )
-
-    label_question.pack(
-        ipadx=5,
-        ipady=5,
-        expand=True
-    )
+    label_question['text'] = question
+    next_button['state'] = 'disabled'
+    next_button['text'] = 'Next question'
 
     number_of_choices = len(choices.items())
     x = 0
     y = 0
+    count = 0
     for k, v in choices.items():
         if number_of_choices == 2:
-            button = ttk.Button(master=buttons_frame,
-                                text=f'{k}: {v}',
-                                style='my.TButton',
-                                command=lambda t=k: select(t, answer))
-            button.grid(row=x, column=y, ipadx=10, ipady=10)
-            y += 1
+            buttons[count]['text'] = f'{k}: {v}'
+            buttons[count]['command'] = lambda t=k, button_id=count: select(button_id, t)
+            buttons[count]['state'] = 'normal'
+            buttons[count]['bg'] = '#f0f0f0'
+            count += 1
+            if count == 2:
+                buttons[2]['text'] = 'C'
+                buttons[3]['text'] = 'D'
+                buttons[2]['state'] = 'disabled'
+                buttons[3]['state'] = 'disabled'
+                buttons[2]['bg'] = '#f0f0f0'
+                buttons[3]['bg'] = '#f0f0f0'
         elif number_of_choices == 4:
-            button = ttk.Button(master=buttons_frame,
-                                text=f'{k}: {v}',
-                                style='my.TButton',
-                                command=lambda t=k: select(t, answer))
-            button.grid(row=x, column=y, ipadx=10, ipady=10)
+            buttons[count]['text'] = f'{k}: {v}'
+            buttons[count]['command'] = lambda t=k, button_id=count: select(button_id, t)
+            buttons[count]['state'] = 'normal'
+            buttons[count]['bg'] = '#f0f0f0'
             y += 1
+            count += 1
             if y == 2:
                 y = 0
                 x += 1
+    question_no += 1
+    if number_of_questions == question_no:
+        next_button['text'] = 'End Quiz'
+        next_button['command'] = end_quiz
 
-    root.mainloop()
+
+def end_quiz():
+    for button in buttons:
+        button['text'] = ''
+        button['bg'] = '#f0f0f0'
+    percentage = (score/number_of_questions)*100
+    final_score = f'Score: {percentage}%\n'
+    if percentage > 70:
+        final_score += 'Well done! You passed the certification'
+    else:
+        final_score += 'Sorry, you will have to revise a bit more to succeed! Don\'t give up'
+    label_question['text'] = final_score
+    next_button['text'] = 'Quit'
+    next_button['command'] = close_window
 
 
-create_quiz()
+def close_window():
+    root.destroy()
+
+
+isCorrect = None
+buttons = []
+data = pd.read_json("all questions.json")
+questions = data["questions"]
+number_of_questions = len(questions)
+possible_questions_id = [x for x in range(number_of_questions)]
+question_no = 0
+question_id = -1
+question = None
+choices = {}
+answer = None
+score = 0
+
+#  SETUP
+root = tk.Tk()
+root.title('Python Certification Quiz')
+
+window_width = 1000
+window_height = 600
+
+s = ttk.Style()
+s.configure('my.TButton', font=('Helvetica', 18), width=37)
+
+# text_font = font.Font(size=30, family='Helvetica')
+
+# get the screen dimension
+screen_width = root.winfo_screenwidth()
+screen_height = root.winfo_screenheight()
+
+# find the center point
+center_x = int(screen_width / 2 - window_width / 2)
+center_y = int(screen_height / 2 - window_height / 2)
+
+# set the position of the window to the center of the screen
+root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+root.resizable(False, False)
+
+question_frame = tk.Frame(root)
+question_frame.pack(expand=True, fill='x')
+
+next_frame = tk.Frame(root)
+next_frame.pack(fill='x')
+
+buttons_frame = tk.Frame(root)
+buttons_frame.pack(fill='x')
+
+label_question = tk.Label(
+    question_frame,
+    text='Welcome to Python Certification Quiz!',
+    font=('Helvetica', 18),
+    bd=1, relief='sunken',
+    justify='left'
+)
+
+label_question.pack(
+    ipadx=5,
+    ipady=5,
+    expand=True
+)
+
+next_button = tk.Button(master=next_frame,
+                        text='Start',
+                        font=('Helvetica', 18),
+                        width=14,
+                        command=next_question)
+
+next_button.pack(pady=20)
+
+r, c = 0, 0
+texts = ['A', 'B', 'C', 'D']
+for i in range(4):
+    _ = tk.Button(master=buttons_frame,
+                  text=texts[i],
+                  font=('Helvetica', 18),
+                  state='disabled',
+                  width=34)
+    buttons.append(_)
+    _.grid(row=r, column=c, ipadx=10, ipady=10)
+    c += 1
+    if c == 2:
+        c = 0
+        r += 1
+
+
+root.mainloop()
