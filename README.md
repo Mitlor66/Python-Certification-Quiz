@@ -27,5 +27,9 @@ Highlight correct answer when answer is wrong
 
 ## Version 0.2.1
 Correct answer highlighted when user is wrong. Additionally, all questions will now be in the same file, reducing
-drastically the amount of files to generate for the Quiz. The number of questions for each section of the certification
-will now be correctly generated (7 for section 1 and 3, 8 for section 2 and 4). 60 questions for the quiz so far.
+drastically the amount of files to generate for the Quiz. Suppression of any useless question files from previous
+versions.  The number of questions for each section of the certification will now be correctly generated 
+(7 for section 1 and 3, 8 for section 2 and 4). 60 questions for the quiz so far.
+
+## Version 0.2.2
+Always 4 choices per question. Optimisation of code.

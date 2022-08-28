@@ -56,7 +56,6 @@ def initialize_buttons():
 
     next_b.pack(pady=20)
 
-    r, c = 0, 0
     for i in range(4):
         _ = tk.Button(master=buttons_frame,
                       text=button_values[i],
@@ -64,11 +63,7 @@ def initialize_buttons():
                       state='disabled',
                       width=47)
         buttons.append(_)
-        _.grid(row=r, column=c, ipadx=10, ipady=10)
-        c += 1
-        if c == 2:
-            c = 0
-            r += 1
+        _.grid(row=i//2, column=i % 2, ipadx=10, ipady=10)
     return next_b
 
 
@@ -94,13 +89,8 @@ def initialize_label_question():
         justify='left'
     )
 
-    label.pack(
-        ipadx=5,
-        ipady=5,
-        padx=5,
-        pady=5,
-        expand=True
-    )
+    label.pack(ipadx=5, ipady=5, padx=5, pady=5, expand=True)
+
     return label
 
 
@@ -143,34 +133,15 @@ def next_question():
     next_button['state'] = 'disabled'
     next_button['text'] = 'Next question'
 
-    number_of_choices = len(choices.items())
-    x = 0
-    y = 0
     count = 0
     for k, v in choices.items():
         if k == answer:
             button_id_answer = count
-        if number_of_choices == 2:
-            buttons[count]['text'] = f'{k}: {v}'
-            buttons[count]['command'] = lambda t=k, button_id=count: select(button_id, t, button_id_answer)
-            buttons[count]['state'] = 'normal'
-            buttons[count]['bg'] = '#f0f0f0'
-            count += 1
-            if count == 2:
-                for i in range(2, 4):
-                    buttons[i]['text'] = button_values[i]
-                    buttons[i]['state'] = 'disabled'
-                    buttons[i]['bg'] = '#f0f0f0'
-        elif number_of_choices == 4:
-            buttons[count]['text'] = f'{k}: {v}'
-            buttons[count]['command'] = lambda t=k, button_id=count: select(button_id, t, button_id_answer)
-            buttons[count]['state'] = 'normal'
-            buttons[count]['bg'] = '#f0f0f0'
-            y += 1
-            count += 1
-            if y == 2:
-                y = 0
-                x += 1
+        buttons[count]['text'] = f'{k}: {v}'
+        buttons[count]['command'] = lambda t=k, button_id=count: select(button_id, t, button_id_answer)
+        buttons[count]['state'] = 'normal'
+        buttons[count]['bg'] = '#f0f0f0'
+        count += 1
     question_no += 1
     if number_of_questions == question_no:
         next_button['text'] = 'End Quiz'
@@ -197,7 +168,7 @@ def close_window():
 
 
 # Global variables declaration
-data = pd.read_json("all questions.json")
+data = pd.read_json("questions/all questions.json")
 questions_dictionary = parse_file("questions/all_questions.txt")
 questions_info = data["questions"]
 sections = {1: 7, 2: 8, 3: 7, 4: 8}

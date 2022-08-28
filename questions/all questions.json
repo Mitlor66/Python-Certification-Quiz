@@ -3,7 +3,7 @@
 		{
 			"ID": 1,
 			"section": 1,
-			"choices": {"A": "Interpreter", "B": "Compiler"},
+			"choices": {"A": "Interpreter", "B": "Translater", "C": "Reader", "D": "Compiler"},
 			"answer": "A"
 		},
 		{
@@ -61,7 +61,7 @@
 			"ID": 10,
 			"section": 1,
 			"choices": {"A": "Hello world!\nMy name is John",
-				"B": "Error\n",
+				"B": "Error\n              ",
 				"C": "Helloworld!\nMy name isJohn",
 				"D": "Helloworld!My name isJohn\n"},
 			"answer": "C"
@@ -127,19 +127,19 @@
 		{
 			"ID": 20,
 			"section": 2,
-			"choices": {"A": "0\n1", "B": "0\n1\n2", "C": "1\n2", "D": "1"},
+			"choices": {"A": "0 1", "B": "0 1 2", "C": "1 2", "D": "1"},
 			"answer": "A"
 		},
 		{
 			"ID": 21,
 			"section": 2,
-			"choices": {"A": "0\n1", "B": "0\n1\n2", "C": "1\n2", "D": "1"},
+			"choices": {"A": "0 1", "B": "0 1 2", "C": "1 2", "D": "1"},
 			"answer": "C"
 		},
 		{
 			"ID": 22,
 			"section": 2,
-			"choices": {"A": "0\n1", "B": "1\n2\n3", "C": "1\n2", "D": "2\n3"},
+			"choices": {"A": "0 1", "B": "1 2 3", "C": "1 2", "D": "2 3"},
 				"answer": "B"
 		},
 		{
@@ -158,23 +158,23 @@
 			"ID": 25,
 			"section": 2,
 			"choices": {
-				"A": "0\n1",
-				"B": "1\n2\n3",
-				"C": "1\n2",
-				"D": "1\n"
+				"A": "0 1",
+				"B": "1 2 3",
+				"C": "1 2",
+				"D": "1"
 			},
 			"answer": "C"
 		},
 		{
 			"ID": 26,
 			"section": 2,
-			"choices": {"A": "10\n9\n8", "B": "9\n8\n7", "C": "9\n8", "D": "10\n9"},
+			"choices": {"A": "10 9 8", "B": "9 8 7", "C": "9 8", "D": "10 9"},
 			"answer": "A"
 		},
 		{
 			"ID": 27,
 			"section": 2,
-			"choices": {"A": "0\n1\n2", "B": "0", "C": "0\n2", "D": "0\n1"},
+			"choices": {"A": "0 1 2", "B": "0", "C": "0 2", "D": "0 1"},
 			"answer": "C"
 		},
 		{
@@ -360,19 +360,19 @@
 		{
 			"ID": 48,
 			"section": 4,
-			"choices": {"A": "2\n1\nBoum",
-				"B": "Boum\n2\n1",
+			"choices": {"A": "2 1 Boum",
+				"B": "Boum 2 1",
 				"C": "None",
-				"D": "Boum\n1\n2"},
+				"D": "Boum 1 2"},
 			"answer": "A"
 		},
 		{
 			"ID": 49,
 			"section": 4,
-			"choices": {"A": "2\n1\nBoum",
-				"B": "Boum\n2\n1",
+			"choices": {"A": "2 1 Boum",
+				"B": "Boum 2 1",
 				"C": "None",
-				"D": "Boum\n1\n2"},
+				"D": "Boum 1 2"},
 			"answer": "D"
 		},
 		{
