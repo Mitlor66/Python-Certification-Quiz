@@ -1,3 +1,0 @@
-What will the output be after running the following code snippet?
-full_name = "robert method karamagi"
-print(full_name.title())

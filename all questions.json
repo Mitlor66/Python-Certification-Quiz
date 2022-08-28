@@ -2,31 +2,477 @@
 	"questions": [
 		{
 			"ID": 1,
+			"section": 1,
 			"choices": {"A": "Interpreter", "B": "Compiler"},
 			"answer": "A"
 		},
 		{
 			"ID": 2,
-			"choices": {"A": 1, "B": 2, "C": 3, "D": 4},
-			"answer": "B"
+			"section": 1,
+			"choices": {"A": "while", "B": "in", "C": "del", "D": "int"},
+			"answer": "D"
 		},
 		{
 			"ID": 3,
+			"section": 1,
 			"choices": {"A": 1, "B": 9, "C": 0, "D": 3},
 			"answer": "B"
 		},
 		{
 			"ID": 4,
+			"section": 1,
 			"choices": {"A": "True", "B": "'Error'", "C": "'robert'", "D": "False"},
 			"answer": "D"
 		},
 		{
 			"ID": 5,
+			"section": 1,
 			"choices": {"A": "Robert method karamagi", 
 			"B": "Robert method Karamagi", 
 			"C": "Robert Method Karamagi", 
 			"D": "ROBERT METHOD KARAMAGI"},
 			"answer": "C"
+		},
+		{
+			"ID": 6,
+			"section": 1,
+			"choices": {"A": "@", "B": "#", "C": "//", "D": "<>"},
+			"answer": "B"
+		},
+		{
+			"ID": 7,
+			"section": 1,
+			"choices": {"A": "x", "B": "int()", "C": "4", "D": "'4'"},
+			"answer": "D"
+		},
+		{
+			"ID": 8,
+			"section": 1,
+			"choices": {"A": "x_4", "B": "4_x", "C": "_x", "D": "_4"},
+			"answer": "B"
+		},
+		{
+			"ID": 9,
+			"section": 1,
+			"choices": {"A": "True", "B": "Error", "C": "None", "D": "False"},
+			"answer": "D"
+		},
+		{
+			"ID": 10,
+			"section": 1,
+			"choices": {"A": "Hello world!\nMy name is John",
+				"B": "Error\n",
+				"C": "Helloworld!\nMy name isJohn",
+				"D": "Helloworld!My name isJohn\n"},
+			"answer": "C"
+		},
+		{
+			"ID": 11,
+			"section": 1,
+			"choices": {"A": "10", "B": "0b1010", "C": "14", "D": "Error"},
+			"answer": "A"
+		},
+		{
+			"ID": 12,
+			"section": 1,
+			"choices": {"A": "147", "B": "163", "C": "149", "D": "157"},
+			"answer": "A"
+		},
+		{
+			"ID": 13,
+			"section": 1,
+			"choices": {"A": "int", "B": "float", "C": "double", "D": "str"},
+			"answer": "B"
+		},
+		{
+			"ID": 14,
+			"section": 1,
+			"choices": {"A": "4", "B": "4.0", "C": "4.", "D": "Error"},
+			"answer": "B"
+		},
+		{
+			"ID": 15,
+			"section": 2,
+			"choices": {"A": 1, "B": 2, "C": 3, "D": 4},
+			"answer": "B"
+		},
+		{
+			"ID": 16,
+			"section": 2,
+			"choices": {
+				"A": "A",
+				"B": "B",
+				"C": "C",
+				"D": "D"},
+			"answer": "C"
+		},
+		{
+			"ID": 17,
+			"section": 2,
+			"choices": {"A": "Syntax Error", "B": "Hello", "C": "Goodbye", "D": "Nothing will be displayed"},
+			"answer": "C"
+		},
+		{
+			"ID": 18,
+			"section": 2,
+			"choices": {"A": "1", "B": "2", "C": "3", "D": "Nothing will be displayed"},
+			"answer": "B"
+		},
+		{
+			"ID": 19,
+			"section": 2,
+			"choices": {"A": "1 and 3", "B": "1 and 2", "C": "1", "D": "3"},
+			"answer": "A"
+		},
+		{
+			"ID": 20,
+			"section": 2,
+			"choices": {"A": "0\n1", "B": "0\n1\n2", "C": "1\n2", "D": "1"},
+			"answer": "A"
+		},
+		{
+			"ID": 21,
+			"section": 2,
+			"choices": {"A": "0\n1", "B": "0\n1\n2", "C": "1\n2", "D": "1"},
+			"answer": "C"
+		},
+		{
+			"ID": 22,
+			"section": 2,
+			"choices": {"A": "0\n1", "B": "1\n2\n3", "C": "1\n2", "D": "2\n3"},
+				"answer": "B"
+		},
+		{
+			"ID": 23,
+			"section": 2,
+			"choices": {"A": "Hello world", "B": "Hello", "C": " world", "D": "Nothing will be displayed"},
+			"answer": "D"
+		},
+		{
+			"ID": 24,
+			"section": 2,
+			"choices": {"A": "Hello world", "B": "Hello", "C": " world", "D": "Nothing will be displayed"},
+			"answer": "A"
+		},
+		{
+			"ID": 25,
+			"section": 2,
+			"choices": {
+				"A": "0\n1",
+				"B": "1\n2\n3",
+				"C": "1\n2",
+				"D": "1\n"
+			},
+			"answer": "C"
+		},
+		{
+			"ID": 26,
+			"section": 2,
+			"choices": {"A": "10\n9\n8", "B": "9\n8\n7", "C": "9\n8", "D": "10\n9"},
+			"answer": "A"
+		},
+		{
+			"ID": 27,
+			"section": 2,
+			"choices": {"A": "0\n1\n2", "B": "0", "C": "0\n2", "D": "0\n1"},
+			"answer": "C"
+		},
+		{
+			"ID": 28,
+			"section": 2,
+			"choices": {"A": "0 0, 0 1, 1 0, 1 1",
+				"B": "0 0, 0 1",
+				"C": "0 0, 0 1, 0 2, 1 0, 1 1, 1 2",
+				"D": "1 1, 1 2"},
+			"answer": "B"
+		},
+		{
+			"ID": 29,
+			"section": 2,
+			"choices": {"A": "banana, orange, apple",
+				"B": "banana, orange",
+				"C": "apple",
+				"D": "Nothing will be displayed"},
+			"answer": "D"
+		},
+		{
+			"ID": 30,
+			"section": 2,
+			"choices": {"A": "Syntax Error",
+				"B": "Hey there",
+				"C": "How is it possible?",
+				"D": "Nothing will be displayed"},
+			"answer": "B"
+		},
+		{
+			"ID": 31,
+			"section": 3,
+			"choices": {"A": "[1, 2, 3]",
+				"B": "[1, 3]",
+				"C": "[2, 3]",
+				"D": "[2, 3, 4]"},
+			"answer": "C"
+		},
+		{
+			"ID": 32,
+			"section": 3,
+			"choices": {"A": "[1, 2, 5, 4]",
+				"B": "[1, 2, 3, 5]",
+				"C": "[1, 2, 3, 4, 5]",
+				"D": "[1, 5, 3, 4]"},
+			"answer": "A"
+		},
+		{
+			"ID": 33,
+			"section": 3,
+			"choices": {"A": "[1, 2, 3, 4]",
+				"B": "[1, 2, 3, 5]",
+				"C": "[1, 2, 3, 4, 5]",
+				"D": "Error"},
+			"answer": "C"
+		},
+		{
+			"ID": 34,
+			"section": 3,
+			"choices": {"A": "3",
+				"B": "4",
+				"C": "5",
+				"D": "0"},
+			"answer": "B"
+		},
+		{
+			"ID": 35,
+			"section": 3,
+			"choices": {"A": "[0, 1, 2, 3]",
+				"B": "Error",
+				"C": "[2, 3, 1, 0]",
+				"D": "Nothing will be displayed"},
+			"answer": "C"
+		},
+		{
+			"ID": 36,
+			"section": 3,
+			"choices": {"A": "[0, 1, 2, 3]",
+				"B": "Error",
+				"C": "[2, 3, 1, 0]",
+				"D": "Nothing will be displayed"},
+			"answer": "A"
+		},
+		{
+			"ID": 37,
+			"section": 3,
+			"choices": {"A": "(1, 2, 3, 4)",
+				"B": "Error, tuples are immutable",
+				"C": "((1, 2), (3, 4))",
+				"D": "(4, 6)"},
+			"answer": "A"
+		},
+		{
+			"ID": 38,
+			"section": 3,
+			"choices": {"A": "(1, 0, 3)",
+				"B": "Error, tuples are immutable",
+				"C": "(0, 2, 3)",
+				"D": "(1, 2, 3)"},
+			"answer": "B"
+		},
+		{
+			"ID": 39,
+			"section": 3,
+			"choices": {"A": "Dictionary and List",
+				"B": "String and Tuple",
+				"C": "List and String",
+				"D": "Dictionary and String"},
+			"answer": "B"
+		},
+		{
+			"ID": 40,
+			"section": 3,
+			"choices": {"A": "1, 2,",
+				"B": "A, B,",
+				"C": "1:'A', 2:'B',",
+				"D": "Nothing will be displayed"},
+			"answer": "A"
+		},
+		{
+			"ID": 41,
+			"section": 3,
+			"choices": {"A": "Yes",
+				"B": "Error",
+				"C": "No",
+				"D": "Nothing will be displayed"},
+			"answer": "C"
+		},
+		{
+			"ID": 42,
+			"section": 3,
+			"choices": {"A": "8",
+				"B": "4",
+				"C": "Error",
+				"D": "Nothing will be displayed"},
+			"answer": "A"
+		},
+		{
+			"ID": 43,
+			"section": 3,
+			"choices": {"A": "Addition",
+				"B": "Join",
+				"C": "Concatenation",
+				"D": "Fusion"},
+			"answer": "C"
+		},
+		{
+			"ID": 44,
+			"section": 3,
+			"choices": {"A": "[0, 2, 3]",
+				"B": "[1, 2, 3]",
+				"C": "Error",
+				"D": "Nothing will be displayed"},
+			"answer": "A"
+		},
+		{
+			"ID": 45,
+			"section": 4,
+			"choices": {"A": "5",
+				"B": "7",
+				"C": "Error, x is not defined",
+				"D": "None"},
+			"answer": "B"
+		},
+		{
+			"ID": 46,
+			"section": 4,
+			"choices": {"A": "[1, 2, -3]",
+				"B": "[1, 2, 3]",
+				"C": "None",
+				"D": "Nothing will be displayed"},
+			"answer": "C"
+		},
+		{
+			"ID": 47,
+			"section": 4,
+			"choices": {"A": "[1, 2, -3]",
+				"B": "[1, 2, 3]",
+				"C": "None",
+				"D": "Nothing will be displayed"},
+			"answer": "A"
+		},
+		{
+			"ID": 48,
+			"section": 4,
+			"choices": {"A": "2\n1\nBoum",
+				"B": "Boum\n2\n1",
+				"C": "None",
+				"D": "Boum\n1\n2"},
+			"answer": "A"
+		},
+		{
+			"ID": 49,
+			"section": 4,
+			"choices": {"A": "2\n1\nBoum",
+				"B": "Boum\n2\n1",
+				"C": "None",
+				"D": "Boum\n1\n2"},
+			"answer": "D"
+		},
+		{
+			"ID": 50,
+			"section": 4,
+			"choices": {"A": "A",
+				"B": "B",
+				"C": "C",
+				"D": "D"},
+			"answer": "A"
+		},
+		{
+			"ID": 51,
+			"section": 4,
+			"choices": {"A": "Error, missing 1 required positional argument",
+				"B": "10",
+				"C": "2",
+				"D": "Nothing will be displayed"},
+			"answer": "B"
+		},
+		{
+			"ID": 52,
+			"section": 4,
+			"choices": {"A": "Error, missing 1 required positional argument",
+				"B": "10",
+				"C": "7",
+				"D": "Error, cannot reach second return statement"},
+			"answer": "C"
+		},
+		{
+			"ID": 53,
+			"section": 4,
+			"choices": {"A": "4",
+				"B": "2",
+				"C": "None",
+				"D": "Nothing will be displayed"},
+			"answer": "C"
+		},
+		{
+			"ID": 54,
+			"section": 4,
+			"choices": {"A": "4",
+				"B": "2",
+				"C": "None",
+				"D": "Nothing will be displayed"},
+			"answer": "B"
+		},
+		{
+			"ID": 55,
+			"section": 4,
+			"choices": {"A": "5",
+				"B": "7",
+				"C": "Error, variable a duplicated",
+				"D": "Nothing will be displayed"},
+			"answer": "B"
+		},
+		{
+			"ID": 56,
+			"section": 4,
+			"choices": {"A": "5",
+				"B": "7",
+				"C": "Error, variable a duplicated",
+				"D": "Nothing will be displayed"},
+			"answer": "C"
+		},
+		{
+			"ID": 57,
+			"section": 4,
+			"choices": {"A": "5",
+				"B": "6",
+				"C": "Error",
+				"D": "Nothing will be displayed"},
+			"answer": "B"
+		},
+		{
+			"ID": 58,
+			"section": 4,
+			"choices": {"A": "1",
+				"B": "3",
+				"C": "5",
+				"D": "7"},
+			"answer": "B"
+		},
+		{
+			"ID": 59,
+			"section": 4,
+			"choices": {"A": "6",
+				"B": "1, 2, 3",
+				"C": "Error",
+				"D": "None"},
+			"answer": "A"
+		},
+		{
+			"ID": 60,
+			"section": 4,
+			"choices": {"A": "Hey",
+				"B": "Nothing will be displayed",
+				"C": "Error",
+				"D": "Oh"},
+			"answer": "D"
 		}
 	]
 }
