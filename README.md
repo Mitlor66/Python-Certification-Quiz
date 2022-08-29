@@ -33,3 +33,13 @@ versions.  The number of questions for each section of the certification will no
 
 ## Version 0.2.2
 Always 4 choices per question. Optimisation of code.
+To do:
+Add a timer + Timeout when timer is over
+Number of questions left for students
+Menu bar with some options to define
+
+## Version 0.2.3
+Timer depending on the number of questions selected by the user (1.30 minute per question). Progress bar showing
+the progress so far through the quiz. When timeout, final score displayed for the user to see with how many questions
+they answered in total. A new dark theme has been added for the user.
+To do:

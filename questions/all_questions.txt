@@ -73,7 +73,7 @@ else:
 
 16
 What is the purpose of the pass statement?
-A: When the pass statement is executed, the function stops its work
+A: When the pass statement is executed, the function stops its current execution
 B: The pass statement is used to stop the current iteration of a loop
 C: When the pass statement is executed, nothing happens, but you avoid
 getting an error when empty code is not allowed
