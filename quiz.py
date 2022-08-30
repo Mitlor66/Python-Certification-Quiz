@@ -31,7 +31,6 @@ def parse_file(filename):
 
 
 def initialize_window():
-    global dark_theme
     window = tk.Tk()
     window.title('Python Certification Quiz')
 
@@ -52,6 +51,77 @@ def initialize_window():
     # set the window color
     window.configure(bg=Color.DARK_GRAY.value if dark_theme else Color.NORMAL_BG_GRAY.value)
     return window
+
+
+def get_user_input():
+    global number_of_questions, time_per_question
+
+    # store email address and password
+    no_of_question = tk.StringVar()
+    t_per_question = tk.StringVar()
+
+    # Sign in frame
+    all_info = ttk.Frame(root)
+    all_info.pack(padx=10, pady=10)
+
+    # email
+    no_of_question_label = ttk.Label(all_info, text="Number of questions:")
+    no_of_question_label.pack()
+
+    no_of_question_entry = ttk.Entry(all_info, textvariable=no_of_question)
+    no_of_question_entry.pack()
+    no_of_question_entry.focus()
+
+    # password
+    t_per_question_label = ttk.Label(all_info, text="Time per question:")
+    t_per_question_label.pack()
+
+    t_per_question_entry = ttk.Entry(all_info, textvariable=t_per_question)
+    t_per_question_entry.pack()
+
+    # login button
+    validate_button = ttk.Button(all_info, text="Login", command=validate)
+    validate_button.pack(pady=10)
+
+
+def validate():
+    pass
+
+
+def create_menu_bar():
+    menubar = tk.Menu(root)
+    root.config(menu=menubar)
+
+    # create the file_menu
+    file_menu = tk.Menu(
+        menubar,
+        tearoff=0
+    )
+
+    # add menu items to the File menu
+    file_menu.add_command(label='Restart', command=restart_quiz)
+    file_menu.add_command(label='Pause', command=pause_quiz)
+    file_menu.add_command(label='Close', command=root.destroy)
+
+    preference_menu = tk.Menu(
+        menubar,
+        tearoff=0
+    )
+
+    # add menu items to the File menu
+    preference_menu.add_command(label='Switch theme', command=switch_theme)
+
+    menubar.add_cascade(
+        label="Quiz",
+        menu=file_menu,
+        underline=0
+    )
+
+    # add the File menu to the menubar
+    menubar.add_cascade(
+        label="Preferences",
+        menu=preference_menu
+    )
 
 
 def initialize_buttons():
@@ -184,10 +254,10 @@ def select(button_id, choice, button_id_answer):
 
 
 def next_question():
-    global question_id, choices, answer, question_no
+    global question_id, choices, answer, question_no, time_per_question
     generate_question()
     if question_no == 0:
-        x = threading.Thread(target=timer, args=(number_of_questions,), daemon=True)
+        x = threading.Thread(target=timer, args=(number_of_questions, time_per_question, ), daemon=True)
         x.start()
     label_question['text'] = question
     next_button['state'] = 'disabled'
@@ -206,6 +276,7 @@ def next_question():
 
 def end_quiz():
     global correct, wrong
+    pause_quiz()
     for button in buttons:
         button['text'] = ''
         button['bg'] = Color.LIGHT_GRAY.value if dark_theme else Color.NORMAL_BG_GRAY.value,
@@ -237,19 +308,20 @@ def timer(no_of_questions):
     minutes = int(total_time_minutes % 60)
     seconds = 0
     while total_time_seconds > 0:
-        label_timer['text'] = f"{hours:02d}:{minutes:02d}:{seconds:02d}"
-        total_time_seconds -= 1
-        if seconds == 0:
-            seconds = 59
-            if minutes == 0:
-                minutes = 59
-                if hours != 0:
-                    hours -= 1
+        if not pause:
+            label_timer['text'] = f"{hours:02d}:{minutes:02d}:{seconds:02d}"
+            total_time_seconds -= 1
+            if seconds == 0:
+                seconds = 59
+                if minutes == 0:
+                    minutes = 59
+                    if hours != 0:
+                        hours -= 1
+                else:
+                    minutes -= 1
             else:
-                minutes -= 1
-        else:
-            seconds -= 1
-        time.sleep(1)
+                seconds -= 1
+            time.sleep(1)
     timeout()
 
 
@@ -264,6 +336,36 @@ def timeout():
     label_question['text'] = "Timeout...\nPress 'end quiz' to see your results"
 
 
+def pause_quiz():
+    global pause
+    pause = not pause
+
+
+def restart_quiz():
+    pass
+
+
+def switch_theme():
+    global dark_theme
+    dark_theme = not dark_theme
+    root['bg'] = Color.DARK_GRAY.value if dark_theme else Color.NORMAL_BG_GRAY.value
+    progress_frame['bg'] = Color.DARK_GRAY.value if dark_theme else Color.NORMAL_BG_GRAY.value
+    question_frame['bg'] = Color.DARK_GRAY.value if dark_theme else Color.NORMAL_BG_GRAY.value
+    next_frame['bg'] = Color.DARK_GRAY.value if dark_theme else Color.NORMAL_BG_GRAY.value
+    buttons_frame['bg'] = Color.DARK_GRAY.value if dark_theme else Color.NORMAL_BG_GRAY.value
+    next_button['bg'] = Color.LIGHT_GRAY.value if dark_theme else Color.NORMAL_BG_GRAY.value
+    next_button['fg'] = Color.WHITE.value if dark_theme else Color.BLACK.value
+    next_button['disabledforeground'] = Color.DISABLED_GRAY.value if dark_theme else Color.NORMAL_TEXT_GRAY.value
+    for button in buttons:
+        button['bg'] = Color.LIGHT_GRAY.value if dark_theme else Color.NORMAL_BG_GRAY.value
+        button['fg'] = Color.WHITE.value if dark_theme else Color.BLACK.value
+        button['disabledforeground'] = Color.DISABLED_GRAY.value if dark_theme else Color.NORMAL_TEXT_GRAY.value
+    label_question['bg'] = Color.LIGHT_GRAY.value if dark_theme else Color.NORMAL_BG_GRAY.value
+    label_question['fg'] = Color.WHITE.value if dark_theme else Color.BLACK.value
+    label_timer['bg'] = Color.LIGHT_GRAY.value if dark_theme else Color.NORMAL_BG_GRAY.value
+    label_timer['fg'] = Color.WHITE.value if dark_theme else Color.BLACK.value
+
+
 # Global variables declaration
 if __name__ == "__main__":
     data = pd.read_json("questions/all questions.json")
@@ -273,6 +375,7 @@ if __name__ == "__main__":
     current_sections = {1: 0, 2: 0, 3: 0, 4: 0}
     number_of_questions = sum(sections.values())
     possible_questions_id = [x for x in range(len(questions_info))]
+    time_per_question = 0
     question_no = 0
     question_id = -1
     question = ""
@@ -284,9 +387,11 @@ if __name__ == "__main__":
     buttons = []
     button_values = ['A', 'B', 'C', 'D']
     dark_theme = False
+    pause = False
 
     #  SETUP
     root = initialize_window()
+    create_menu_bar()
     progress_frame, question_frame, next_frame, buttons_frame = initialize_frames()
     label_timer, progress_bar = initialize_progress_frame_widgets()
     label_question = initialize_label_question()

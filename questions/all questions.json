@@ -473,6 +473,69 @@
 				"C": "Error",
 				"D": "Oh"},
 			"answer": "D"
+		},
+		{
+			"ID": 61,
+			"section": 1,
+			"choices": {"A": "0b01",
+				"B": "0b11",
+				"C": "0b10",
+				"D": "10"},
+			"answer": "C"
+		},
+		{
+			"ID": 62,
+			"section": 1,
+			"choices": {"A": "4",
+				"B": "Error",
+				"C": "1",
+				"D": "9"},
+			"answer": "C"
+		},
+		{
+			"ID": 63,
+			"section": 1,
+			"choices": {"A": "hello prof Yarol",
+				"B": "HelloProfYarol",
+				"C": "Hello prof yarol",
+				"D": "Hello Prof Yarol"},
+			"answer": "A"
+		},
+		{
+			"ID": 64,
+			"section": 1,
+			"choices": {"A": "Timur,Yarol",
+				"B": "Timur \",\"Yarol",
+				"C": "Timur Yarol",
+				"D": "TimurYarol"},
+			"answer": "A"
+		},
+		{
+			"ID": 65,
+			"section": 1,
+			"choices": {"A": "--",
+				"B": "''",
+				"C": "Nothing; no newline/blank line",
+				"D": "'--'"},
+			"answer": "C"
+		},
+		{
+			"ID": 66,
+			"section": 1,
+			"choices": {"A": "Error",
+				"B": "2",
+				"C": "2.0",
+				"D": "5"},
+			"answer": "C"
+		},
+		{
+			"ID": 67,
+			"section": 1,
+			"choices": {"A": "False",
+				"B": "True",
+				"C": "SyntaxError",
+				"D": "10"},
+			"answer": "B"
 		}
 	]
 }

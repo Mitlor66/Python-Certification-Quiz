@@ -399,3 +399,37 @@ def f(x):
     else:
         print("Oh")
 f([])
+
+61
+What will the output be after running the following code snippet?
+a = 0b1011
+b = 0b1001
+print(bin(a ^ b))
+
+62
+What will the output be after running the following code snippet?
+print(9 % 2 ** 4)
+
+63
+What will the output be after running the following code snippet?
+s1="Hello Prof Yarol"
+print(s1.capitalize())
+
+64
+What will the output be after running the following code snippet?
+print("Timur","Yarol", sep=",")
+
+65
+What will the output be after running the following code snippet?
+print(end='',sep='--')
+
+66
+What will the output be after running the following code snippet?
+print (10/5)
+
+67
+What will the output be after running the following code snippet?
+p = 10
+q = 10
+print(p is q)
+

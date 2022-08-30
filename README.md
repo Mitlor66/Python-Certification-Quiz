@@ -41,5 +41,8 @@ Menu bar with some options to define
 ## Version 0.2.3
 Timer depending on the number of questions selected by the user (1.30 minute per question). Progress bar showing
 the progress so far through the quiz. When timeout, final score displayed for the user to see with how many questions
-they answered in total. A new dark theme has been added for the user.
-To do:
+they answered in total. 
+
+## Version 0.2.4
+A new dark theme has been added for the user. Quiz pause option. Pause the timer when quiz is
+over. 7 more questions added to the quiz.
