@@ -102,6 +102,7 @@ class Window:
         # store email address and password
         no_of_questions = tk.StringVar()
         t_per_question = tk.StringVar()
+        selected_theme = tk.BooleanVar()
 
         # Sign in frame
         all_info = ttk.Frame(self.window)
@@ -110,31 +111,47 @@ class Window:
         no_of_question_label = ttk.Label(all_info, text="Number of questions:")
         no_of_question_label.pack()
 
-        no_of_question_entry = ttk.Entry(all_info, textvariable=no_of_questions)
-        no_of_question_entry.pack()
-        no_of_question_entry.focus()
+        no_of_question_combobox = ttk.Combobox(all_info, state="readonly", textvariable=no_of_questions)
+        no_of_question_combobox['values'] = [x for x in range(10, 121, 10)]
+        no_of_question_combobox.current(2)
+        no_of_question_combobox.pack()
 
         t_per_question_label = ttk.Label(all_info, text="Time per question:")
         t_per_question_label.pack()
 
-        t_per_question_entry = ttk.Entry(all_info, textvariable=t_per_question)
-        t_per_question_entry.pack()
+        t_per_question_combobox = ttk.Combobox(all_info,  state="readonly", textvariable=t_per_question)
+        t_per_question_combobox['values'] = [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5]
+        t_per_question_combobox.current(2)
+        t_per_question_combobox.pack()
+
+        # label
+        theme_label = ttk.Label(all_info, text="Select the theme for the quiz")
+        theme_label.pack(fill='x', padx=5, pady=5)
+
+        selected_theme = tk.StringVar()
+        rb1 = ttk.Radiobutton(all_info, text='Light theme', value=False, variable=selected_theme)
+        rb2 = ttk.Radiobutton(all_info, text='Dark theme', value=True, variable=selected_theme)
+
+        rb1.pack()
+        rb2.pack()
 
         # login button
         validate_button = ttk.Button(all_info,
                                      text="Start Quiz",
                                      command=lambda noq=no_of_questions, tpq=t_per_question:
-                                     self.validate(quiz, noq, tpq))
+                                     self.validate(quiz, noq, tpq, selected_theme))
 
         validate_button.pack(pady=10)
         return all_info
 
-    def validate(self, quiz, noq, tpq):
+    def validate(self, quiz, noq, tpq, selected_theme):
         quiz.number_of_questions = int(noq.get())
         quiz.time_per_question = float(tpq.get())
+        flag = selected_theme.get()
         self.all_info.pack_forget()
-        print(quiz.number_of_questions, quiz.time_per_question)
         self.initialize_frames(quiz)
+        if flag == "1":
+            self.switch_theme(quiz)
 
     def initialize_frames(self, quiz):
         quiz.progress_frame = tk.Frame(self.window,
@@ -279,11 +296,11 @@ class Quiz:
                           state='disabled',
                           width=47)
             self.buttons.append(_)
-            _.grid(row=i//2, column=i % 2, ipadx=10, ipady=10)
+            _.grid(row=i // 2, column=i % 2, ipadx=10, ipady=10)
 
     def create_all_questions(self):
         for k, v in self.questions_dictionary.items():
-            qid = k-1
+            qid = k - 1
             section = self.questions_info[qid]['section']
             text = v
             choices = self.questions_info[qid]['choices']
@@ -303,7 +320,7 @@ class Quiz:
 
     def select(self, button_id, choice, button_id_answer):
         self.question_no += 1
-        calculation = 500/self.number_of_questions
+        calculation = 500 / self.number_of_questions
         calculation = calculation / 500
         calculation *= 100
         self.progress_bar['value'] += calculation
@@ -350,7 +367,7 @@ class Quiz:
         for button in self.buttons:
             button['text'] = ''
             button['bg'] = Color.LIGHT_GRAY.value if self.dark_theme else Color.NORMAL_BG_GRAY.value,
-        percentage = (self.score/self.number_of_questions)*100
+        percentage = (self.score / self.number_of_questions) * 100
         final_score = f'Score: {percentage:.2f}%\n'
         final_score += f'Correct: {self.correct}/{self.question_no}\nWrong: {self.wrong}/{self.question_no}\n'
         final_score += f'Questions answered: {self.question_no}/{self.number_of_questions}\n'

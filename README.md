@@ -49,3 +49,7 @@ over. 7 more questions added to the quiz.
 
 ## Version 0.3.0
 Full transformation of code from procedural to Object-Oriented. Addition of 8 questions to the code.
+
+## Version 0.3.1
+Main page for user to decide how many questions in total (only works for 30 so far), time per question and which
+theme they would like to use during the quiz.
