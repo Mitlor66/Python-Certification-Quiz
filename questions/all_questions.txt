@@ -433,3 +433,67 @@ p = 10
 q = 10
 print(p is q)
 
+68
+What will the output be after running the following code snippet?
+name = "None"
+if name:
+    print("Nice to meet you!")
+else:
+    print("I don't understand")
+
+69
+What would be printed to the console after the following code is executed?
+for num in range(1, 10, 2):
+    print(num, end = ",")
+
+70
+What would be printed to the console after the following code is executed?
+num = 3
+if (num % 2 == 0):
+    print("Odd")
+else:
+    print("Even")
+
+71
+What would be printed to the console after the following code is executed?
+x = 0
+for i in range(10):
+    for j in range(-1, -10, -1):
+        x += 1
+print(x)
+
+72
+What will the output be after running the following code snippet?
+if 42 == 42.0:
+    print("Values are the same")
+else:
+    print("Values are different")
+
+73
+What will the output be after running the following code snippet?
+if 42 == "42":
+    print("Values are the same")
+else:
+    print("Values are different")
+
+74
+What will the output be after running the following code snippet?
+i = 0
+while i > 3:
+    i+=1
+    print("Yes")
+else:
+    i -=1
+    print("No")
+
+75
+What will the output be after running the following code snippet?
+marks = 55
+if marks > 70 and marks < 80:
+    print("First Class")
+elif marks > 60 and marks < 70:
+    print("Second Class")
+elif marks >50 and marks < 60:
+    print("Third Class")
+else:
+    print("No Class")

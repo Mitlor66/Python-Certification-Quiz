@@ -46,3 +46,6 @@ they answered in total.
 ## Version 0.2.4
 A new dark theme has been added for the user. Quiz pause option. Pause the timer when quiz is
 over. 7 more questions added to the quiz.
+
+## Version 0.3.0
+Full transformation of code from procedural to Object-Oriented. Addition of 8 questions to the code.

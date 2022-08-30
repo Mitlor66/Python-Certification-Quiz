@@ -490,7 +490,7 @@
 				"B": "Error",
 				"C": "1",
 				"D": "9"},
-			"answer": "C"
+			"answer": "D"
 		},
 		{
 			"ID": 63,
@@ -536,6 +536,78 @@
 				"C": "SyntaxError",
 				"D": "10"},
 			"answer": "B"
+		},
+		{
+			"ID": 68,
+			"section": 2,
+			"choices": {"A": "Error",
+				"B": "None",
+				"C": "Nice to meet you",
+				"D": "I don't know you"},
+			"answer": "C"
+		},
+		{
+			"ID": 69,
+			"section": 2,
+			"choices": {"A": "2,4,6,8,10,",
+				"B": "1,3,5,9,11,",
+				"C": "2,4,6,8,",
+				"D": "1,3,5,7,9,"},
+			"answer": "D"
+		},
+		{
+			"ID": 70,
+			"section": 2,
+			"choices": {"A": "Error",
+				"B": "Odd",
+				"C": "Even",
+				"D": "Nothing will be displayed"},
+			"answer": "C"
+		},
+		{
+			"ID": 71,
+			"section": 2,
+			"choices": {"A": "100",
+				"B": "-90",
+				"C": "90",
+				"D": "10"},
+			"answer": "C"
+		},
+		{
+			"ID": 72,
+			"section": 2,
+			"choices": {"A": "True",
+				"B": "Values are the same",
+				"C": "False",
+				"D": "Values are different"},
+			"answer": "B"
+		},
+		{
+			"ID": 73,
+			"section": 2,
+			"choices": {"A": "True",
+				"B": "Values are the same",
+				"C": "False",
+				"D": "Values are different"},
+			"answer": "D"
+		},
+		{
+			"ID": 74,
+			"section": 2,
+			"choices": {"A": "Error",
+				"B": "Yes",
+				"C": "No",
+				"D": "Nothing will be displayed"},
+			"answer": "C"
+		},
+		{
+			"ID": 74,
+			"section": 2,
+			"choices": {"A": "No class",
+				"B": "First class",
+				"C": "Second class",
+				"D": "Third class"},
+			"answer": "D"
 		}
 	]
 }
